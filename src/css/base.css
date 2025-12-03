@@ -22,11 +22,122 @@ body {
   min-width: 100vw;
   min-height: 100vh;
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  max-width: 1128px;
+  background: linear-gradient(
+    90deg,
+    rgba(135, 170, 176, 1) 0%,
+    rgba(87, 199, 133, 1) 50%,
+    rgba(237, 221, 83, 1) 100%
+  );
+}
+.gallery-title {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.form input {
+  width: 272px;
+  height: 40px;
+  border-radius: 4px;
+  padding-left: 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #808080;
+  border: none;
+}
+.form button {
+  background-color: #4e75ff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 91px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
 }
 
-main {
-  flex-grow: 1;
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  max-width: 1128px;
+  margin: 0 auto;
 }
-main:has(.back-link) {
+.gallery-item {
+  box-sizing: border-box;
+  border: 1px solid #000;
+  width: calc((100% - 48px) / 3);
+}
+.gallery-image {
+  width: 360px;
+  height: 200px;
+}
+.image-stats {
+  display: flex;
+  justify-content: space-around;
   text-align: center;
+  padding-top: 4px;
+  background-color: #fff;
+}
+.stats-text {
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.33333;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+.stats-value {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+.loadMore {
+  display: none;
+  width: 160px;
+  padding: 12px 0;
+  margin: 48px auto;
+}
+.loader {
+  position: relative;
+  height: 32px;
+  border: 2px solid #fff;
+  width: 120px;
+  background: #fff;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  display: none;
+}
+.loader:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  width: 28px;
+  height: 28px;
+  background: #ff3d00;
+  animation: ballbns 1s ease-in-out infinite alternate;
+}
+
+@keyframes ballbns {
+  0% {
+    left: 0;
+    transform: translateX(0%);
+  }
+  100% {
+    left: 100%;
+    transform: translateX(-100%);
+  }
 }
