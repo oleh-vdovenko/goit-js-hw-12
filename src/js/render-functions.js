@@ -48,7 +48,7 @@ let lightbox = new SimpleLightbox('.gallery a', {
 });
 export function createGallery(images) {
   const markup = images.map(createImage).join('');
-  refs.gallery.innerHTML = markup;
+  refs.gallery.insertAdjacentHTML('beforeend', markup);
   lightbox.refresh();
 }
 export function clearGallery() {
@@ -65,4 +65,12 @@ export function showLoadMoreButton() {
 }
 export function hideLoadMoreButton() {
   refs.loadMoreBtn.style.display = 'none';
+}
+export function scrollBy() {
+  let elem = document.querySelector('li');
+  let rect = elem.getBoundingClientRect();
+  window.scrollBy({
+    top: rect.height * 2,
+    behavior: 'smooth',
+  });
 }
